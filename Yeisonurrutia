@@ -1,0 +1,94 @@
+# Import necessary modules
+import pygame
+import random
+
+# Initialize Pygame (this should no longer be underlined)
+pygame.init()
+
+# Set up display
+display_width = 800
+display_height = 600
+screen = pygame.display.set_mode((display_width, display_height))
+pygame.display.set_caption('Snake Game')
+
+# Set up clock
+clock = pygame.time.Clock()
+
+# Define colors
+black = (0, 0, 0)
+white = (255, 255, 255)
+red = (255, 0, 0)
+
+# Define block size
+block_size = 10
+
+# Define snake speed
+snake_speed = 15
+
+# Define font
+font_style = pygame.font.Font(None, 25)
+
+# Define snake starting position
+snake_position = [display_width / 2, display_height / 2]
+snake_length = 1
+
+# Define food starting position
+food_position = [random.randrange(block_size, display_width - block_size), random.randrange(block_size, display_height - block_size)]
+
+# Define movement directions
+left = False
+right = False
+up = False
+down = False
+
+# Initialize snake body
+snake_body = []
+snake_body.append(snake_position)  # Add starting position to snake body
+
+# Main game loop
+game_over = False
+while not game_over:
+    # Event handling
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            game_over = True
+        if event.type == pygame.KEYDOWN:
+            # ... rest of event handling for movement ...
+
+    # Update snake position
+    # ... rest of snake position update ...
+
+    # Check for wall collisions
+    # ... rest of wall collision check ...
+
+    # Check for snake body collisions
+    for body_segment in snake_body[:-1]:
+        if snake_position == body_segment:
+            game_over = True
+
+    # Check for food collision
+    # ... rest of food collision check ...
+
+    # Update snake body
+    # ... rest of snake body update ...
+
+    # Fill the screen with black
+    screen.fill(black)
+
+    # Draw the snake
+    # ... rest of snake drawing ...
+
+    # Draw the food
+    # ... rest of food drawing ...
+
+    # Display score
+    # ... rest of score display ...
+
+    # Update the display
+    pygame.display.flip()
+
+    # Set frame rate
+    clock.tick(snake_speed)
+
+# Game over message
+# ... rest of game over message ...
